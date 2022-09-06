@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
 
-    <Grid>
+    <Grid Margin="15">
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
             <RowDefinition Height="283*"/>
@@ -22,12 +22,11 @@
 
                 <ComboBox ItemsSource="{Binding DATABASES}" SelectedItem="{Binding dbName}" IsEditable="True" />
 
-                <TextBox Text="{Binding strSQliteDB, UpdateSourceTrigger=PropertyChanged}" Grid.Column="1" />
 
 
             </Grid>
 
-            <TextBox Text="{Binding strSearch, UpdateSourceTrigger=PropertyChanged}" />
+            <TextBox Text="{Binding strSearch, UpdateSourceTrigger=PropertyChanged}" Margin="0 5" />
 
             <CheckBox IsChecked="{Binding isSelectAll}" />
         </StackPanel>

@@ -35,7 +35,7 @@ namespace DataGenerator.App
         }
     }
 
-    class Data :Data_Generator.Datalayer.ViewModelBase
+    class Data : Data_Generator.Datalayer.ViewModelBase
     {
 
         private string _strSQliteDB;
@@ -48,7 +48,7 @@ namespace DataGenerator.App
                 _strSQliteDB = value;
 
                 Data_Generator.Datalayer.RepositoryMaker.setdatabaseSQLite(value);
-                var lstTables =Data_Generator.Datalayer.RepositoryMaker.setTables();
+                var lstTables = Data_Generator.Datalayer.RepositoryMaker.setTables();
 
                 allTables = lstTables.Select(p => new Table() { isChecked = isSelectAll, title = p }).ToList();
             }
@@ -85,7 +85,7 @@ namespace DataGenerator.App
 
         public Data()
         {
-            var lst =Data_Generator.Datalayer.RepositoryMaker.getDATABASES();
+            var lst = Data_Generator.Datalayer.RepositoryMaker.getDATABASES();
             DATABASES = lst.OrderBy(p => p).ToList();
             tables = new ObservableCollection<Table>();
         }
@@ -105,7 +105,7 @@ namespace DataGenerator.App
 
         public void setdb(string dbname)
         {
-            allTables =Data_Generator.Datalayer.RepositoryMaker.getTables(dbname).Select(p => new Table() { isChecked = isSelectAll, title = p }).ToList();
+            allTables = Data_Generator.Datalayer.RepositoryMaker.getTables(dbname).Select(p => new Table() { isChecked = isSelectAll, title = p }).ToList();
             setTables();
         }
 
@@ -133,15 +133,13 @@ namespace DataGenerator.App
         {
             try
             {
-               Data_Generator.Datalayer.export.exportData(lstSelected);
-                //Data_Generator.Datalayer.export.exportData(lstSelected);
-
+                Data_Generator.Datalayer.export.exportData(lstSelected);
                 System.Windows.MessageBox.Show("دیتا با موفقیت درست شد!");
             }
             catch { }
         }
 
-        public class Table :Data_Generator.Datalayer.ViewModelBase
+        public class Table : Data_Generator.Datalayer.ViewModelBase
         {
             public string title { get; set; }
             private bool _isChecked;
