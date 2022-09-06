@@ -133,7 +133,9 @@ namespace DataGenerator.App
         {
             try
             {
-               Data_Generator.Datalayer.RepositoryMaker.exportData(lstSelected);
+               Data_Generator.Datalayer.export.exportData(lstSelected);
+                //Data_Generator.Datalayer.export.exportData(lstSelected);
+
                 System.Windows.MessageBox.Show("دیتا با موفقیت درست شد!");
             }
             catch { }
