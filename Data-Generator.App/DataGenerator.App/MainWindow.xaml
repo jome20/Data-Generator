@@ -1,0 +1,50 @@
+﻿<Window x:Class="DataGenerator.App.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DataGenerator.App"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="350" Width="525">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="283*"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+        <StackPanel>
+            <Grid >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="100*"/>
+                    <ColumnDefinition Width="150*"/>
+                </Grid.ColumnDefinitions>
+
+                <ComboBox ItemsSource="{Binding DATABASES}" SelectedItem="{Binding dbName}" IsEditable="True" />
+
+                <TextBox Text="{Binding strSQliteDB, UpdateSourceTrigger=PropertyChanged}" Grid.Column="1" />
+
+
+            </Grid>
+
+            <TextBox Text="{Binding strSearch, UpdateSourceTrigger=PropertyChanged}" />
+
+            <CheckBox IsChecked="{Binding isSelectAll}" />
+        </StackPanel>
+
+
+        <ListBox ItemsSource="{Binding tables}" Grid.Row="1" >
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+
+                    <CheckBox Content="{Binding title}" IsChecked="{Binding isChecked}" />
+
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+
+        <Button Content="Export" Click="BtnExport_Click" Grid.Row="2" />
+    </Grid>
+
+
+</Window>
